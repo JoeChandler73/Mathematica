@@ -1,0 +1,139 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      4010,        130]
+NotebookOptionsPosition[      3372,        104]
+NotebookOutlinePosition[      3735,        120]
+CellTagsIndexPosition[      3692,        117]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"project", " ", "euler", " ", "problem", " ", "1"}], " ", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", "\[IndentingNewLine]", " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "If", " ", "we", " ", "list", " ", "all", " ", "the", " ", "natural", " ",
+      "numbers", " ", "below", " ", "10", " ", "that", " ", "are", " ", 
+     "multiples", " ", "of", " ", "3", " ", "or", " ", "5"}], ",", " ", 
+    RowBox[{"we", " ", "get", " ", "3"}], ",", "5", ",", 
+    RowBox[{
+    "6", " ", "and", " ", "9.", " ", "The", " ", "sum", " ", "of", " ", 
+     "these", " ", "multiples", " ", "is", " ", "23.", " ", "Find", " ", 
+     "the", " ", "sum", " ", "of", " ", "all", " ", "the", " ", "multiples", 
+     " ", "of", " ", "3", " ", "or", " ", "5", " ", "below", " ", "1000."}]}],
+    " ", "\[IndentingNewLine]", "\[IndentingNewLine]", "*)"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.4944112508377123`*^9, 3.494411328556232*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", "x_", "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"TrueQ", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Mod", "[", 
+         RowBox[{"x", ",", "3"}], "]"}], "\[Equal]", "0"}], " ", "||", " ", 
+       RowBox[{
+        RowBox[{"Mod", "[", 
+         RowBox[{"x", ",", "5"}], "]"}], "\[Equal]", "0"}]}], "]"}], ",", "x",
+      ",", "0"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.494411366566764*^9, 3.494411411029735*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"f", ",", "Listable"}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"confirm", " ", "given", " ", "case"}], " ", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"testData", "=", 
+    RowBox[{"Range", "[", "9", "]"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.494411439432316*^9, 3.4944114737903976`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Total", "[", 
+  RowBox[{"f", "[", "testData", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.4944114781363163`*^9, 3.494411490798798*^9}}],
+
+Cell[BoxData["23"], "Output",
+ CellChangeTimes->{3.4944114915176888`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", "answer", " ", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"data", "=", 
+    RowBox[{"Range", "[", "999", "]"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.494411495191517*^9, 3.4944115316075697`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Total", "[", 
+  RowBox[{"f", "[", "data", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.494411533895637*^9, 3.494411539607727*^9}}],
+
+Cell[BoxData["233168"], "Output",
+ CellChangeTimes->{3.494411541029676*^9}]
+}, Open  ]]
+},
+WindowSize->{954, 1118},
+WindowMargins->{{Automatic, 117}, {Automatic, 147}},
+Magnification->1.5,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 11, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 1034, 19, 248, "Input"],
+Cell[1582, 41, 510, 15, 42, "Input"],
+Cell[2095, 58, 115, 3, 40, "Input"],
+Cell[2213, 63, 326, 8, 87, "Input"],
+Cell[CellGroupData[{
+Cell[2564, 75, 161, 3, 40, "Input"],
+Cell[2728, 80, 73, 1, 40, "Output"]
+}, Open  ]],
+Cell[2816, 84, 282, 7, 87, "Input"],
+Cell[CellGroupData[{
+Cell[3123, 95, 155, 3, 40, "Input"],
+Cell[3281, 100, 75, 1, 40, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

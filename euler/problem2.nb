@@ -1,0 +1,236 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      7426,        227]
+NotebookOptionsPosition[      6489,        190]
+NotebookOutlinePosition[      6852,        206]
+CellTagsIndexPosition[      6809,        203]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"project", " ", "euler", " ", "problem", " ", "2"}], " ", "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", "\[IndentingNewLine]", " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "Each", " ", "new", " ", "term", " ", "in", " ", "the", " ", "Fibonacci", 
+     " ", "sequence", " ", "is", " ", "generated", " ", "by", " ", "adding", 
+     " ", "the", " ", "previous", " ", "two", " ", 
+     RowBox[{"terms", ".", " ", "By"}], " ", "starting", " ", "with", " ", 
+     "1", " ", "and", " ", "2"}], ",", 
+    RowBox[{"the", " ", "first", " ", "10", " ", "terms", " ", "will", " ", 
+     RowBox[{"be", ":", "\[IndentingNewLine]", "1"}]}], ",", "2", ",", "3", 
+    ",", "5", ",", "8", ",", "13", ",", "21", ",", "34", ",", "55", ",", "89",
+     ",", 
+    RowBox[{
+     RowBox[{
+     "...", "\[IndentingNewLine]", "Find", " ", "the", " ", "sum", " ", "of", 
+      " ", "all", " ", "the", " ", "even"}], "-", 
+     RowBox[{
+     "valued", " ", "terms", " ", "in", " ", "the", " ", "sequence", " ", 
+      "which", " ", "do", " ", "not", " ", "exceed", " ", "four", " ", 
+      RowBox[{"million", "."}]}]}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.4944129310834513`*^9, 3.494412944068877*^9}, 
+   3.494413025004323*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "find", " ", "the", " ", "last", " ", "integer", " ", "n", " ", "for", 
+     " ", "which", " ", "the", " ", "fibonacci", " ", "number", " ", "is"}], 
+    " ", "<", " ", "4000000"}], " ", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"nMax", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"NestWhile", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"#", "+", "1"}], ")"}], "&"}], ",", "1", ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Fibonacci", "[", "#", "]"}], "\[LessEqual]", "4000000"}], 
+        "&"}]}], "]"}], "-", "1"}]}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.494414794576549*^9, 3.494414897712648*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"check", " ", "this"}], " ", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Fibonacci", "[", "nMax", "]"}], ",", 
+    RowBox[{"Fibonacci", "[", 
+     RowBox[{"nMax", "+", "1"}], "]"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.494414887088497*^9, 3.4944149321124983`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3524578", ",", "5702887"}], "}"}]], "Output",
+ CellChangeTimes->{{3.494414928482986*^9, 3.494414933744524*^9}, 
+   3.494415104432128*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "get", " ", "all", " ", "the", " ", "fibonacci", " ", "numbers", " ", "1", 
+    " ", "to", " ", "nMax"}], " ", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"data", "=", 
+   RowBox[{"Fibonacci", "[", 
+    RowBox[{"Range", "[", "nMax", "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.49441495445514*^9, 3.494415054978756*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "1", ",", "2", ",", "3", ",", "5", ",", "8", ",", "13", ",", "21",
+    ",", "34", ",", "55", ",", "89", ",", "144", ",", "233", ",", "377", ",", 
+   "610", ",", "987", ",", "1597", ",", "2584", ",", "4181", ",", "6765", ",",
+    "10946", ",", "17711", ",", "28657", ",", "46368", ",", "75025", ",", 
+   "121393", ",", "196418", ",", "317811", ",", "514229", ",", "832040", ",", 
+   "1346269", ",", "2178309", ",", "3524578"}], "}"}]], "Output",
+ CellChangeTimes->{3.494415055505003*^9, 3.494415104467925*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+  "get", " ", "all", " ", "the", " ", "even", " ", "numbers", " ", "in", " ", 
+   "the", " ", "sequence", " ", "above"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.4944150589440317`*^9, 3.494415073235075*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Select", "[", 
+  RowBox[{"data", ",", "EvenQ"}], "]"}]], "Input",
+ CellChangeTimes->{{3.494414401739009*^9, 3.494414404278021*^9}, {
+  3.494414516481783*^9, 3.4944145414084463`*^9}, {3.494414762431376*^9, 
+  3.494414776953306*^9}, {3.494415077267598*^9, 3.494415082794997*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2", ",", "8", ",", "34", ",", "144", ",", "610", ",", "2584", ",", "10946",
+    ",", "46368", ",", "196418", ",", "832040", ",", "3524578"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.494414777724636*^9, {3.494415085472822*^9, 3.4944151112637167`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{"compute", " ", "our", " ", "sum"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.4944150883759117`*^9, 3.494415096291141*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Total", "[", "%", "]"}]], "Input",
+ CellChangeTimes->{{3.494414781883707*^9, 3.4944147842612667`*^9}}],
+
+Cell[BoxData["4613732"], "Output",
+ CellChangeTimes->{
+  3.4944147848076344`*^9, {3.494415100822465*^9, 3.494415113635139*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"as", " ", "a", " ", "one", " ", "liner"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"Total", "[", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"Fibonacci", "[", 
+      RowBox[{"Range", "[", 
+       RowBox[{
+        RowBox[{"NestWhile", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"#", "+", "1"}], ")"}], "&"}], ",", "1", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Fibonacci", "[", "#", "]"}], "\[LessEqual]", "4000000"}],
+            "&"}]}], "]"}], "-", "1"}], "]"}], "]"}], ",", "EvenQ"}], "]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.494415126646937*^9, 3.494415181119432*^9}}],
+
+Cell[BoxData["4613732"], "Output",
+ CellChangeTimes->{3.494415184229175*^9}]
+}, Open  ]]
+},
+WindowSize->{1046, 1313},
+WindowMargins->{{Automatic, 263}, {Automatic, 66}},
+Magnification->1.5,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 11, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 1354, 27, 271, "Input"],
+Cell[1902, 49, 760, 21, 87, "Input"],
+Cell[CellGroupData[{
+Cell[2687, 74, 382, 10, 87, "Input"],
+Cell[3072, 86, 177, 4, 40, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3286, 95, 410, 10, 87, "Input"],
+Cell[3699, 107, 560, 9, 87, "Output"]
+}, Open  ]],
+Cell[4274, 119, 258, 5, 40, "Input"],
+Cell[CellGroupData[{
+Cell[4557, 128, 301, 5, 40, "Input"],
+Cell[4861, 135, 298, 7, 40, "Output"]
+}, Open  ]],
+Cell[5174, 145, 172, 3, 40, "Input"],
+Cell[CellGroupData[{
+Cell[5371, 152, 126, 2, 40, "Input"],
+Cell[5500, 156, 127, 2, 40, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5664, 163, 730, 21, 87, "Input"],
+Cell[6397, 186, 76, 1, 40, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
